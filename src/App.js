@@ -58,9 +58,14 @@ socket.on("get db messages", (messagesDb) => {
   }
 });
 
+socket.on("user joined", (username) => {
+ alert(`${username} just joined` )
+});
+
 return ()=>{
   socket.off("message");
-  socket.off("get db messages")
+  socket.off("get db messages");
+  socket.off("user joined")
 };
 
 },[])
