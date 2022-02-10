@@ -45,7 +45,7 @@ React.useEffect(()=>{
 socket.on('message', function(msg) {
     console.log("test")
     setMessages((prevMessages)=>{
-      return [...prevMessages,{content:msg} ]
+      return [...prevMessages,{username:user,content:msg} ]
     })     
 });
 
@@ -78,17 +78,17 @@ return ()=>{
         {messages.map((message,i)=> {
           if (true){
             return (
-              <div key={`message ${i}}`} class="container">
-                <img src="/w3images/bandmember.jpg" alt="Avatar" style="width:100%;" />
+              <div key={`message ${i}}`} className="container">
+                <img src="/w3images/bandmember.jpg" alt={message.username}/>
                 <p>{message.content}</p>
-                <span class="time-right">11:00</span>
+                <span className="time-right">11:00</span>
               </div>
             )
           }
           else {
             return(
               <div key={`message ${i}}`} class="container darker">
-              <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right" style="width:100%;" />
+              <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right"  />
               <p>{message.content}</p>
               <span class="time-left">11:01</span>
             </div>
