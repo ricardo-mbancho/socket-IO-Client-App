@@ -31,7 +31,9 @@ function App() {
 
     setInput("")
   }
-  
+socket.on("user joined", (username) => {
+ alert(`${username} just joined` )
+});
 
 
 //  socket.on('get users', function(users) {
