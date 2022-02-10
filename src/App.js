@@ -1,5 +1,4 @@
 import React from 'react'; 
-import logo from './logo.svg';
 import './App.css';
 import { io } from "socket.io-client";
 
@@ -76,7 +75,27 @@ return ()=>{
         {onlineUsers.map((onlineUser,i)=> <li key={`username ${i}}`}>{onlineUser.username}</li>)}
       </ul> */}
       <ul id="messages">
-        {messages.map((message,i)=> <li key={`message ${i}}`}>{message.content}</li>)}
+        {messages.map((message,i)=> {
+          if (true){
+            return (
+              <div key={`message ${i}}`} class="container">
+                <img src="/w3images/bandmember.jpg" alt="Avatar" style="width:100%;" />
+                <p>{message.content}</p>
+                <span class="time-right">11:00</span>
+              </div>
+            )
+          }
+          else {
+            return(
+              <div key={`message ${i}}`} class="container darker">
+              <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="right" style="width:100%;" />
+              <p>{message.content}</p>
+              <span class="time-left">11:01</span>
+            </div>
+            )
+          }
+        
+        })}
       </ul>
         <form id="form" action="" onSubmit={(event)=>  {
           event.preventDefault(); 
