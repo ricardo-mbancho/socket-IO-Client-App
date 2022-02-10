@@ -31,9 +31,6 @@ function App() {
 
     setInput("")
   }
-socket.on("user joined", (username) => {
- alert(`${username} just joined` )
-});
 
 
 //  socket.on('get users', function(users) {
@@ -62,6 +59,7 @@ socket.on("get db messages", (messagesDb) => {
 
 socket.on("user joined", (username) => {
  alert(`${username} just joined` )
+ console.log("user joined")
 });
 
 return ()=>{
