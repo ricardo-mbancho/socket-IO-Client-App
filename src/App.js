@@ -53,7 +53,7 @@ function App() {
 
   return (
     <div className="App">
-      <ul id="messages">
+      <ul className="messages">
         {messages.map((message,i)=> {
           if (message){
             return (
