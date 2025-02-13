@@ -12,13 +12,11 @@ const socket = io("https://fast-caverns-12899.herokuapp.com/", {
  'query':{username:user,userRoom:room}
 });
 
-socket.emit("get db messages")
+socket.emit("get db messages");
 
 function App() {
   const [messages,setMessages]= React.useState([]); 
-  
   const [input, setInput] = React.useState(""); 
-  // let [onlineUsers,setOnlineusers] = React.useState([]) ;
 
   function handleSubmit() {
     socket.emit("message", input);
@@ -27,7 +25,6 @@ function App() {
   
   React.useEffect(()=>{
     socket.on('message', function(msg) {
-      console.log("test")
       setMessages((prevMessages)=>{
         return [...prevMessages,{username:user, content:msg} ]
       });     
@@ -48,7 +45,6 @@ function App() {
       socket.off("get db messages");
       socket.off("user joined")
     };
-
   },[]);
 
   return (
@@ -90,5 +86,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
